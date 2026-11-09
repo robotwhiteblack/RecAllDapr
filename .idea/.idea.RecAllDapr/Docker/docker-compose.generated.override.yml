@@ -1,0 +1,39 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.4"
+services:
+  recall-servicestatus:
+    build:
+      context: "D:\\Microservices\\RecAllDapr"
+      dockerfile: "Infrastructure/ServiceStatus/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecAll.Infrastructure.ServiceStatus.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "recall-servicestatus:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\icanf\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\Microservices\\RecAllDapr\\Infrastructure\\ServiceStatus:/app:rw"
+    - "D:\\Microservices\\RecAllDapr:/src:rw"
+    working_dir: "/app"
+  recall-textitemapi:
+    build:
+      context: "D:\\Microservices\\RecAllDapr"
+      dockerfile: "Contrib/TextItem.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecAll.Contrib.TextItem.Api.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "recall-textitemapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\icanf\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\Microservices\\RecAllDapr\\Contrib\\TextItem.Api:/app:rw"
+    - "D:\\Microservices\\RecAllDapr:/src:rw"
+    working_dir: "/app"
